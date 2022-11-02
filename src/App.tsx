@@ -1,9 +1,7 @@
-function App() {
-  return (
-    <div className='App'>
-      <h1>FLOW CHALLENGE</h1>
-    </div>
-  );
-}
+import Header from './components/Header';
+
+const App = () => {
+  return <Header />;
+};
 
 export default App;

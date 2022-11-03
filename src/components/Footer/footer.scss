@@ -1,0 +1,24 @@
+.footer {
+  min-height: 200px;
+  background-color: $detail-color;
+  display: flex;
+  align-items: center;
+
+  &__weather-info,
+  &__personal-info {
+    text-align: center;
+    font-weight: 300;
+    &__link {
+      font-weight: 500;
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:not(.footer__personal-info) {
+      margin-bottom: 16px;
+    }
+  }
+}

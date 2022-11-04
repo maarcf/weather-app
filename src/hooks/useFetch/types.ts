@@ -1,10 +1,10 @@
-interface WeatherInfo {
-  address: string;
-  days?: WeatherConditions[] | null;
+export interface WeatherInfo {
+  address?: string;
+  days: WeatherConditions[];
 }
 
-interface WeatherConditions {
-  datetime: string;
+export interface WeatherConditions {
+  datetimeEpoch: number;
   tempmax: number;
   tempmin: number;
   temp: number;

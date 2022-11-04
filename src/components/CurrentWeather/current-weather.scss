@@ -1,0 +1,174 @@
+.current-weather {
+  background-color: $detail-color;
+  min-height: 240px;
+  max-width: 400px;
+  border-radius: 20px 20px 120px 20px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 auto;
+
+  &__main-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &__temp {
+      flex: 1;
+      font-weight: 600;
+      font-size: 45px;
+      line-height: 50px;
+
+      span {
+        font-size: 16px;
+        line-height: 32px;
+        vertical-align: top;
+      }
+    }
+
+    &__address {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        font-size: 18px;
+        margin: 0 auto 4px;
+        text-align: center;
+      }
+      span {
+        color: $text-color;
+        font-size: 12px;
+        font-weight: 300;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__more-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+      font-weight: 300;
+      font-size: 14px;
+
+      span {
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+
+    &__temp {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+    }
+
+    &__conditions p {
+      margin-bottom: 4px;
+    }
+
+    &__icon-container {
+      text-align: end;
+      img {
+        max-width: 65px;
+      }
+    }
+  }
+
+  @include is-small-mobile {
+    gap: 16px;
+    &__main-info {
+      &__temp {
+        font-size: 65px;
+        line-height: 68px;
+      }
+      &__address {
+        font-size: 24px;
+      }
+    }
+    &__more-info {
+      flex-direction: row;
+      &__conditions p:last-child {
+        margin-top: 24px;
+        max-width: 230px;
+      }
+
+      &__icon-container {
+        position: relative;
+        max-width: 150px;
+        width: 100%;
+
+        img {
+          max-width: 90px;
+          position: absolute;
+          right: 40px;
+          top: 20px;
+        }
+      }
+    }
+  }
+
+  @include is-desktop {
+    max-height: 300px;
+    margin: 0;
+    padding: 16px;
+
+    &__main-info {
+      &__temp {
+        font-size: 90px;
+        line-height: 80px;
+        span {
+          font-size: 20px;
+        }
+      }
+      &__address {
+        h2 {
+          font-size: 32px;
+        }
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+    &__more-info {
+      p {
+        font-size: 16px;
+
+        span {
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
+      &__conditions p:last-child {
+        margin: 16px 0 0;
+        max-width: 270px;
+      }
+      &__icon-container {
+        position: unset;
+        animation: floating 5s linear infinite;
+        transform: translatey(0px);
+
+        img {
+          max-width: 100%;
+          position: unset;
+        }
+      }
+    }
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

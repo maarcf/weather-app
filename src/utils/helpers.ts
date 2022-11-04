@@ -15,6 +15,23 @@ export const formatToday = (datetime: number): string => {
   });
 };
 
+export const formatDay = (datetime: number) => {
+  const dateToMilliseconds = datetime * 1000;
+  const date = new Date(dateToMilliseconds)
+    .toLocaleDateString(undefined, {
+      day: '2-digit',
+      month: '2-digit',
+      weekday: 'short',
+      timeZone: 'America/Argentina/Buenos_Aires',
+    })
+    .split(',');
+
+  const weekday = date[0].toUpperCase();
+  const dayMonth = date[1].replace(' ', '');
+
+  return { weekday, dayMonth };
+};
+
 export const selectIcon = (icon: string): string => {
   const ICONS_TO_CHOOSE = [
     'clear',

@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin is-small-mobile {
+  @media (min-width: $small-mobile) {
+    @content;
+  }
+}

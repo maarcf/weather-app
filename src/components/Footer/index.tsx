@@ -12,6 +12,24 @@ const Footer = () => {
               rel='noreferrer'
             >
               Visual Crossing.
+            </a>{' '}
+            Los íconos son propiedad de{' '}
+            <a
+              className='footer__weather-info__link'
+              href='https://www.flaticon.com/authors/iconixar'
+              target='_blank'
+              rel='noreferrer'
+            >
+              iconixar
+            </a>{' '}
+            para{' '}
+            <a
+              className='footer__weather-info__link'
+              href='https://www.flaticon.com/'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Flaticon
             </a>
           </p>
         </div>

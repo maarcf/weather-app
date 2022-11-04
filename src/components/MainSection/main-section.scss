@@ -1,5 +1,13 @@
 .main-section {
   background-color: $background-color;
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px 0;
+
+  @include is-desktop {
+    &--flex {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+  }
 }

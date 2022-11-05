@@ -4,10 +4,12 @@
   padding: 20px 0;
 
   @include is-desktop {
-    &--flex {
-      display: flex;
+    padding: 40px 0;
+    &--grid {
+      display: grid;
+      grid-template-columns: 405px 580px;
+      grid-template-rows: 100px 1fr;
       justify-content: space-between;
-      gap: 16px;
     }
   }
 }

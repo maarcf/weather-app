@@ -1,5 +1,6 @@
 import { WeatherConditions } from '../../hooks/useFetch/types';
-import { formatDay, NO_INFO, selectIcon } from '../../utils/helpers';
+import { formatDay, NO_INFO } from '../../utils/helpers';
+import Icon from '../Icon';
 import { ExtendedForecastProps } from './types';
 
 const ListItem = ({
@@ -24,10 +25,7 @@ const ListItem = ({
       </p>
       {Boolean(icon) && (
         <div className={`${className}__icon-container`}>
-          <img
-            src={`/assets/images/icons/${selectIcon(icon)}-gradient.png`}
-            alt={`${description ? 'El día estará: ' + description : 'Ícono del tiempo.'}`}
-          />
+          <Icon icon={icon} description={description} />
         </div>
       )}
     </li>

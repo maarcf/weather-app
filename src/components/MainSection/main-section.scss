@@ -3,6 +3,18 @@
   min-height: 100vh;
   padding: 20px 0;
 
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+    max-width: 220px;
+    margin: 0 auto;
+    text-align: center;
+
+    @include is-small-mobile {
+      max-width: 320px;
+    }
+  }
+
   @include is-desktop {
     padding: 40px 0;
     &--grid {
@@ -10,6 +22,10 @@
       grid-template-columns: 405px 580px;
       grid-template-rows: 100px 1fr;
       justify-content: space-between;
+    }
+
+    &__title {
+      max-width: max-content;
     }
   }
 }

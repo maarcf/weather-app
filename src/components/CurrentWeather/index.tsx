@@ -1,5 +1,6 @@
 import { WeatherConditions } from '../../hooks/useFetch/types';
-import { formatToday, NO_INFO, selectIcon } from '../../utils/helpers';
+import { formatToday, NO_INFO } from '../../utils/helpers';
+import Icon from '../Icon';
 import { CurrentWeatherProps } from './types';
 
 const CurrentWeather = ({ address, weather }: CurrentWeatherProps) => {
@@ -53,12 +54,7 @@ const CurrentWeather = ({ address, weather }: CurrentWeatherProps) => {
         </div>
         {Boolean(icon) && (
           <div className={`${className}__more-info__icon-container`}>
-            <img
-              src={`/assets/images/icons/${selectIcon(icon)}.png`}
-              alt={`${
-                description ? 'El día estará: ' + description : 'Ícono del tiempo.'
-              }`}
-            />
+            <Icon icon={icon} description={description} currentDay />
           </div>
         )}
       </div>

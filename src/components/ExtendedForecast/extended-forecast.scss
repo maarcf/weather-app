@@ -63,8 +63,7 @@
   }
 
   @include is-desktop {
-    max-width: 600px;
-    width: 100%;
+    grid-area: 1 / 2 / 3 / 3;
     &__title {
       border: none;
       padding-top: 0;

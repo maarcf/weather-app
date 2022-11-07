@@ -15,7 +15,9 @@ const Select = ({ handleChange, value }: SelectProps) => {
             value={value}
             className='select-city__select'
           >
-            <option defaultValue='' hidden />
+            <option defaultValue='' hidden>
+              Seleccione una cuidad
+            </option>
             {cities.map(city => (
               <option value={city} key={city}>
                 {city}

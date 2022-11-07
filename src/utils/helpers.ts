@@ -2,7 +2,7 @@
 export const API_KEY: string = import.meta.env.VITE_API_KEY;
 export const BASE_URL: string = import.meta.env.VITE_BASE_URL_SERVICES;
 export const QUERY_PARAMS =
-  'unitGroup=metric&lang=es&include=days&elements=conditions,description,humidity,icon,temp,tempmax,tempmin,windspeed,datetimeEpoch';
+  'unitGroup=metric&lang=es&include=days&elements=description,humidity,icon,temp,tempmax,tempmin,windspeed,datetimeEpoch&timezone=America/Argentina/Buenos_Aires';
 
 // Reverse Geo
 export const REVERSE_GEO_API_KEY: string = import.meta.env.VITE_REVERSE_GEO_API_KEY;
@@ -16,7 +16,6 @@ export const formatToday = (datetime: number): string => {
   return new Date(dateToMilliseconds).toLocaleDateString('es-AR', {
     day: 'numeric',
     month: 'long',
-    timeZone: 'America/Argentina/Buenos_Aires',
   });
 };
 
@@ -27,7 +26,6 @@ export const formatDay = (datetime: number) => {
       day: '2-digit',
       month: '2-digit',
       weekday: 'short',
-      timeZone: 'America/Argentina/Buenos_Aires',
     })
     .split(',');
 

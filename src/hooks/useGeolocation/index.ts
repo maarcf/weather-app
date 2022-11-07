@@ -33,8 +33,9 @@ const useGeolocation = (): UserGeolocationTypes => {
 
   useEffect(() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(onSuccess, () =>
-        setInfo({ ...info, status: STATUS.DENIED })
+      navigator.geolocation.getCurrentPosition(
+        position => onSuccess(position),
+        () => setInfo({ ...info, status: STATUS.DENIED })
       );
     }
   }, []);

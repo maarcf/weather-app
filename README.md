@@ -2,9 +2,9 @@
 
 ## Descripción
 
-Aplicación del clima, podés seleccionar entre cinco ciudades por medio de un selector. También podés permitir la ubicación y te mostrará el clima de tu ubicación. La aplicación muestra el pronóstico actual y el de los próximos cinco días.
+Esta aplicación del clima muestra el pronóstico actual y el de los próximos cinco días. Podés seleccionar entre cinco ciudades por medio de un selector o podés habilitar la ubicación y te mostrará el clima de tu ubicación.
 
-![imagen del proyecto](https://github.com/maarcf/weather-app/tree/main/public/assets/images/readme-img.png)
+![imagen del proyecto](https://github.com/maarcf/weather-app/blob/main/public/assets/images/readme-img.png)
 
 ## Características y tecnologías
 
@@ -30,7 +30,7 @@ Trabajé por ramas e hice el MR a main desde github, dejé las ramas por si quie
 
 - 1.- Clonar este repositorio.
 - 2.- Instalar las dependencias del proyecto con **YARN**
-- 3.- Una vez instaladas las depencias: `yarn dev`
+- 3.- Una vez instaladas las dependencias, correr el comando: `yarn dev` para levantar el proyecto.
 
 ## Contacto
 

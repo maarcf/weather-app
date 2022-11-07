@@ -10,7 +10,6 @@ export interface WeatherConditions {
   temp: number;
   humidity: number;
   windspeed: number;
-  conditions: string;
   description: string;
   icon: string;
 }

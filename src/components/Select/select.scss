@@ -28,6 +28,10 @@
     option {
       color: $background-color;
       margin-top: 25px;
+
+      &:first-child {
+        opacity: 0.5;
+      }
     }
 
     @include is-small-mobile {

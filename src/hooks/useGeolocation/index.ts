@@ -23,20 +23,21 @@ const useGeolocation = (): UserGeolocationTypes => {
     }
   };
 
+  const onSuccess = (position: GeolocationPosition) => {
+    setCoords({
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+    });
+    getCityName(coords);
+  };
+
   useEffect(() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        position => {
-          setCoords({
-            lat: position.coords.latitude,
-            lon: position.coords.longitude,
-          });
-          getCityName(coords);
-        },
-        () => setInfo({ ...info, status: STATUS.DENIED })
+      navigator.geolocation.getCurrentPosition(onSuccess, () =>
+        setInfo({ ...info, status: STATUS.DENIED })
       );
     }
-  }, [coords.lat, coords.lon]);
+  }, []);
 
   return info;
 };

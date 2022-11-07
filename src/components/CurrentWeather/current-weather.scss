@@ -12,13 +12,15 @@
   &__main-info {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    margin-bottom: 8px;
     gap: 8px;
 
     &__temp {
       flex: 1;
       font-weight: 600;
-      font-size: 45px;
-      line-height: 50px;
+      font-size: 65px;
+      line-height: 68px;
 
       span {
         font-size: 16px;
@@ -33,7 +35,7 @@
       flex-direction: column;
 
       h2 {
-        font-size: 18px;
+        font-size: 24px;
         margin: 0 auto 4px;
         text-align: center;
       }
@@ -81,15 +83,11 @@
 
   @include is-small-mobile {
     gap: 16px;
+
     &__main-info {
-      &__temp {
-        font-size: 65px;
-        line-height: 68px;
-      }
-      &__address {
-        font-size: 24px;
-      }
+      flex-direction: row;
     }
+
     &__more-info {
       flex-direction: row;
       &__conditions p:last-child {

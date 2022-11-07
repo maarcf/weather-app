@@ -1,7 +1,12 @@
+// Weather
 export const API_KEY: string = import.meta.env.VITE_API_KEY;
 export const BASE_URL: string = import.meta.env.VITE_BASE_URL_SERVICES;
 export const QUERY_PARAMS =
   'unitGroup=metric&lang=es&include=days&elements=conditions,description,humidity,icon,temp,tempmax,tempmin,windspeed,datetimeEpoch';
+
+// Reverse Geo
+export const REVERSE_GEO_API_KEY: string = import.meta.env.VITE_REVERSE_GEO_API_KEY;
+export const REVERSE_GEO_BASE_URL: string = import.meta.env.VITE_REVERSE_GEO_BASE_URL;
 
 export const NO_INFO = '';
 

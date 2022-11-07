@@ -1,28 +1,37 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 import { STATUS, WeatherConditions } from '../../hooks/useFetch/types';
+import { STATUS as USER_GEO_STATUS } from '../../hooks/useGeolocation/types';
+import useGeolocation from '../../hooks/useGeolocation';
 import CurrentWeather from '../CurrentWeather';
 import ExtendedForecast from '../ExtendedForecast';
 import Select from '../Select';
 import { ViewsTypes } from './types';
+import Spinner from '../Spinner';
+import Alert from '../Alert';
 
 const MainSection = () => {
   const [selectedCity, setSelectedCity] = useState<string>('');
+  const userGeoAlertState = useState<boolean>(true);
+  const weatherAlertState = useState<boolean>(true);
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCity(e.target.value);
   };
 
   const { status, info } = useFetch(selectedCity);
+  const userGeo = useGeolocation();
+
+  useEffect(() => {
+    if (userGeo.city) {
+      setSelectedCity(userGeo.city);
+    }
+  }, [userGeo.city]);
 
   const DISPLAY_VIEWS: ViewsTypes = {
     INIT: <h2 className='main-section__title'>Por favor, seleccioná una cuidad.</h2>,
-    LOADING: <h2 className='main-section__title'>Cargando información...</h2>,
-    ERROR: (
-      <h2 className='main-section__title'>
-        Estamos teniendo problemas para mostrar la información. Reintentá en unos minutos.
-      </h2>
-    ),
+    LOADING: <Spinner />,
+    ERROR: <Alert status='ERROR_WEATHER' alertState={weatherAlertState} />,
     SUCCESS: (
       <>
         <CurrentWeather address={info?.address} weather={info?.days[0]} />
@@ -31,15 +40,28 @@ const MainSection = () => {
     ),
   };
 
+  const alertUser =
+    userGeo.status === USER_GEO_STATUS.DENIED || userGeo.status === USER_GEO_STATUS.ERROR;
+
   return (
-    <main className='main-section'>
-      <div
-        className={`container ${status === STATUS.SUCCESS ? 'main-section--grid' : ''}`}
-      >
-        <Select handleChange={handleChange} value={selectedCity} />
-        {DISPLAY_VIEWS[status]}
-      </div>
-    </main>
+    <>
+      {userGeo.status === USER_GEO_STATUS.LOADING && <Spinner />}
+      {alertUser && (
+        <Alert
+          status={USER_GEO_STATUS.DENIED ? 'DENIED' : 'ERROR'}
+          alertState={userGeoAlertState}
+        />
+      )}
+
+      <main className='main-section'>
+        <div
+          className={`container ${status === STATUS.SUCCESS ? 'main-section--grid' : ''}`}
+        >
+          <Select handleChange={handleChange} value={selectedCity} />
+          {DISPLAY_VIEWS[status]}
+        </div>
+      </main>
+    </>
   );
 };
 

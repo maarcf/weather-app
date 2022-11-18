@@ -15,14 +15,14 @@ const Alert = ({ status, alertState }: AlertProps) => {
   return (
     <>
       {open ? (
-        <div className='alert' role='alert'>
+        <dialog className='alert' role='alert'>
           <div className='alert__container'>
             <p>{MESSAGE_TO_DISPLAY[status]}</p>
             <button className='alert__button' onClick={() => setOpen(false)}>
               Aceptar
             </button>
           </div>
-        </div>
+        </dialog>
       ) : (
         <></>
       )}

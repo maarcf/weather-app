@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import { API_KEY, BASE_URL, QUERY_PARAMS } from '../../utils/helpers';
 import { FetchDataTypes, STATUS } from './types';
 
-const initialStateValues = {
+const initialStateValues: FetchDataTypes = {
   status: STATUS.INIT,
-  weather: undefined,
 };
 
 const useFetch = (location: string): FetchDataTypes => {

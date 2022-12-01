@@ -11,7 +11,16 @@ const Footer = () => {
               target='_blank'
               rel='noreferrer'
             >
-              Visual Crossing.
+              Visual Crossing
+            </a>{' '}
+            y de{' '}
+            <a
+              className='footer__weather-info__link'
+              href='https://opencagedata.com/'
+              target='_blank'
+              rel='noreferrer'
+            >
+              OpenCage.
             </a>{' '}
             Los íconos son propiedad de{' '}
             <a
@@ -29,7 +38,7 @@ const Footer = () => {
               target='_blank'
               rel='noreferrer'
             >
-              Flaticon
+              Flaticon.
             </a>
           </p>
         </div>
